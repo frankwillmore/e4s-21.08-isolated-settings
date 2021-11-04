@@ -4,7 +4,7 @@ variables:
   E4S_VERSION: e4s-21.08
   SPACK_INSTALLATION: /soft/ecp/spack/${E4S_VERSION}
 #  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.08
-  WORKING_DIR: 
+  WORKING_DIR: "" 
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
   SPACK_DEPLOY_DIR: /tmp/deploy/${E4S_VERSION}
   #SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
