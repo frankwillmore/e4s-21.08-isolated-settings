@@ -69,7 +69,6 @@ generate-spack-pipeline:
   - spack gpg list
 # Delete the aws mirror, nothing there for us, just search time
 #  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
-  - spack config blame mirrors
   - spack mirror list
 # The purge above does this
 #  - spack clean -m
@@ -99,7 +98,8 @@ generate-spack-pipeline:
 #  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
-    - jobs_scratch_dir/pipeline.yml    
+#    - jobs_scratch_dir/pipeline.yml    
+    - jobs_scratch_dir
 
 build-e4s:
   stage: build
