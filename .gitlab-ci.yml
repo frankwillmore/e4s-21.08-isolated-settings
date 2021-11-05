@@ -85,7 +85,8 @@ generate-spack-pipeline:
 #  - spack ci generate --dependencies --optimize  --output-file jobs_scratch_dir/pipeline.yml --artifacts-root ${CI_PROJECT_DIR}/artifacts_root
   - echo ${SPACK_CONCRETE_ENV_DIR}
   - echo ${CI_PROJECT_DIR}
-  - spack ci generate --dependencies --optimize  --output-file jobs_scratch_dir/pipeline.yml 
+#  - spack ci generate --dependencies --optimize  --output-file jobs_scratch_dir/pipeline.yml 
+  - spack ci generate --output-file jobs_scratch_dir/pipeline.yml 
   - echo "Dumping generateed CI:"
   - cat jobs_scratch_dir/pipeline.yml
   - pwd

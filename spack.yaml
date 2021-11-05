@@ -346,11 +346,8 @@ spack:
         - spack gpg list
         - spack -d ci rebuild
         - ls
-#        - rm -rf ${SPACK_CLONE_PATH}
-#    final-stage-rebuild-index:
 #FTW        needs:
 #FTW        - pipeline: $env:PARENT_PIPELINE_ID
-#FTW          # job: create-artifact
 #FTW          job: generate-spack-pipeline
   mirrors:
     arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
