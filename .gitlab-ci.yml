@@ -89,7 +89,7 @@ generate-spack-pipeline:
   - spack ci generate --output-file jobs_scratch_dir/pipeline.yml 
   - echo "Dumping generateed CI:"
   - cat jobs_scratch_dir/pipeline.yml
-  - sed -e -i "s/needs\:\[\]/needs\:[ {pipeline: $PARENT_PIPELINE_ID, job: generate-spack-pipeline} ]/"
+  - sed -e -i "s/needs\:\[\]/needs\:\[ \{pipeline: \$PARENT_PIPELINE_ID, job\: generate-spack-pipeline\} \]/"
   - cat jobs_scratch_dir/pipeline.yml
   - pwd
   - ls -R
