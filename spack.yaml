@@ -348,6 +348,11 @@ spack:
         - ls
 #        - rm -rf ${SPACK_CLONE_PATH}
 #    final-stage-rebuild-index:
+        needs:
+        - pipeline: $PARENT_PIPELINE_ID
+          # job: create-artifact
+          job: generate-spack-pipeline
+
 #      tags: 
 #      - shell
   mirrors:
