@@ -44,20 +44,12 @@ generate-spack-pipeline:
   before_script:
   - hostname  
   - pwd
-#  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
-#  - cd spack-generate  
-#  - git log  --oneline -1
-#  - . share/spack/setup-env.sh
-# Above cloning is deprecated in favor of using the single instance 
+  - ls
   - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
   # Verify location and version
   - which spack
   - spack -V
-  - echo ${CI_PROJECT_DIR}
-  - pwd
-  - ls
 #  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
-
   script:
 # This is done in before script... verify then delete this
 #  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
