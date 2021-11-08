@@ -86,10 +86,11 @@ generate-spack-pipeline:
   - echo ${SPACK_CONCRETE_ENV_DIR}
   - echo ${CI_PROJECT_DIR}
 #  - spack ci generate --dependencies --optimize  --output-file jobs_scratch_dir/pipeline.yml 
-  - spack ci generate --output-file jobs_scratch_dir/pipeline.yml 
-  - echo "Dumping generateed CI:"
-  - cat jobs_scratch_dir/pipeline.yml
+  - spack ci generate --output-file jobs_scratch_dir/_pipeline.yml 
+  - echo "Dumping generated CI:"
+  - cat jobs_scratch_dir/_pipeline.yml
   - . fix_yaml.sh
+  - echo "Dumping patched CI:"
   - cat jobs_scratch_dir/pipeline.yml
   - pwd
   - ls -R
