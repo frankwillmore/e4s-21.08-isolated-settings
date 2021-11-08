@@ -90,7 +90,8 @@ generate-spack-pipeline:
   - ls jobs_scratch_dir
   - echo "Dumping generated CI:"
   - cat jobs_scratch_dir/_pipeline.yml
-  - . fix_yaml.sh
+#  - . fix_yaml.sh
+  - cp desired_output.yml jobs_scratch_dir/pipeline.yml
   - echo "Dumping patched CI:"
   - cat jobs_scratch_dir/pipeline.yml
   - pwd

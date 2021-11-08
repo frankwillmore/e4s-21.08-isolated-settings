@@ -1,0 +1,62 @@
+(specs) zlib/x7fpcwa 1.2.11 gcc@9.3.0 linux-opensuse_leap15-x86_64:
+    stage: stage-0
+    variables:
+        SPACK_INSTALLATION: '$env:SPACK_INSTALLATION'
+        WORKING_DIR: '$env:WORKING_DIR'
+        SPACK_GNUPGHOME: /home/willmore/spack-gnupg
+        SITE_CONFIG: '$env:SITE_CONFIG'
+        SPACK_ROOT_SPEC: x7fpcwas5so6hiemegyf4er3sbbmbpz3
+        SPACK_JOB_SPEC_DAG_HASH: x7fpcwas5so6hiemegyf4er3sbbmbpz3
+        SPACK_JOB_SPEC_BUILD_HASH: x7fpcwas5so6hiemegyf4er3sbbmbpz3
+        SPACK_JOB_SPEC_FULL_HASH: i6bijy7ojwcv63odgzhiv3jsqk75utzg
+        SPACK_JOB_SPEC_PKG_NAME: zlib
+        SPACK_COMPILER_ACTION: NONE
+        SPACK_SPEC_NEEDS_REBUILD: 'True'
+    script:
+        - hostname
+        - pwd
+        - ls
+        - 'echo ${CI_PROJECT_DIR}'
+        - 'ls ${CI_PROJECT_DIR}'
+        - rm -rf ~/.spack/
+        - 'echo ${SPACK_CONCRETE_ENV_DIR}'
+        - '. ${SPACK_INSTALLATION}/share/spack/setup-env.sh'
+        - which spack
+        - spack -V
+        - pwd
+        - 'spack env activate ${SPACK_CONCRETE_ENV_DIR}'
+        - spack gpg list
+        - spack -d ci rebuild
+        - ls
+    tags:
+        - shell
+    artifacts:
+        paths:
+            - jobs_scratch_dir/concrete_environment
+            - jobs_scratch_dir/pipeline.yml
+#            - jobs_scratch_dir/logs
+#            - jobs_scratch_dir/reproduction
+#            - jobs_scratch_dir/user_data
+        when: always
+    needs:
+        -
+            pipeline: $PARENT_PIPELINE_ID
+            job: generate-spack-pipeline
+    retry:
+        max: 2
+        when:
+            - always
+    interruptible: true
+stages:
+    - stage-0
+variables:
+    SPACK_ARTIFACTS_ROOT: jobs_scratch_dir
+    SPACK_CONCRETE_ENV_DIR: jobs_scratch_dir/concrete_environment
+    SPACK_VERSION: 0.16.2-3948-9727d70c62
+    SPACK_CHECKOUT_VERSION: 9727d70c62
+    SPACK_REMOTE_MIRROR_URL: 'file:///soft/ecp/mirrors/arcticus-e4s-21.08'
+    SPACK_JOB_LOG_DIR: jobs_scratch_dir/logs
+    SPACK_JOB_REPRO_DIR: jobs_scratch_dir/reproduction
+    SPACK_LOCAL_MIRROR_DIR: jobs_scratch_dir/mirror
+    SPACK_PIPELINE_TYPE: None
+
